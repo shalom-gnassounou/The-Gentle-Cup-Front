@@ -1,0 +1,52 @@
+.navbar-brand{
+    font-family: Jost, sans-serif;
+    font-size: 24px;
+    color: rgba(127, 78, 66, 1);
+    font-style: italic;
+}
+.navbar-nav .nav-link{
+    font-family: Jost, sans-serif;
+    font-size: 15px;
+    color: black;
+    font-style: italic;
+}
+.dropdown-menu{
+    font-family: Jost, sans-serif;
+    font-size: 15px;
+    color: black;
+    font-style: italic;
+}
+.banner{
+    position: relative;
+    text-align: center;
+   margin-top: 3rem;
+}
+.banner img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;      
+    filter: brightness(70%);
+}
+.banner-text {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    text-align: center;
+    color: white;
+    padding: 1rem;
+    width: 80%;             
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-family: Jost, sans-serif;
+      font-style: italic;
+    }
+
+    p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+        font-family: Jost, sans-serif;
+        font-style: italic;
+    }
+  }
