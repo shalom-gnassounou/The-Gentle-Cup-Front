@@ -1,10 +1,52 @@
+.banner-list{
+    position: relative;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.banner img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;      
+    filter: brightness(70%);
+}
+.banner -text {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    text-align: center;
+    color: white;
+    padding: 1rem;
+    width: 80%;             
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-family: Jost, sans-serif;
+      font-style: italic;
+    }
+
+    p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+        font-family: Jost, sans-serif;
+        font-style: italic;
+    }
+  }
+h2 {
+    margin-top: 2rem;
+    text-align: center;
+    font-family: Jost, sans-serif;
+    font-size: 24px;
+    color: rgba(127, 78, 66, 1);
+    font-style: italic;
+}
+
 .contenaire.drinks {
     margin: 1rem;
 }
 
 .card {
-    background-color: rgba(60, 47, 42, 1);
-    color: white;
+   
     border-radius: 8px;
     padding: 10px;
     margin: 5px;
@@ -14,11 +56,67 @@
     max-width: 320px;
     height: 100%;
 }
-.card a{
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
+/* Boissons chaudes - Marron */
+.card-Warm {
+  background: linear-gradient(135deg, #3C2F2A 0%, #5C4742 100%) !important;
+  color: white;
 }
+
+.card-Warm .card-title {
+  color: #F5E6D3 !important;
+}
+
+.card-Warm .card-text {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Boissons froides - Bleu */
+.card-Cold {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8a 100%) !important;
+  color: white;
+}
+
+.card-Cold .card-title {
+  color: #B8D4F1 !important;
+}
+
+.card-Cold .card-text {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Mocktails - Coloré */
+.card-Mocktail {
+  background: linear-gradient(135deg, #d946a6 0%, #f97316 100%) !important;
+  color: white;
+}
+
+.card-Mocktail .card-title {
+  color: #FEF3C7 !important;
+}
+
+.card-Mocktail .card-text {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Liens dans les cards colorées */
+.card-Warm a,
+.card-Cold a,
+.card-Mocktail a {
+  color: white !important;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: auto;
+}
+
+.card-warm a:hover,
+.card-cold a:hover,
+.card-mocktail a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
 .card > img {
     width: 100%;
     max-width: 300px;

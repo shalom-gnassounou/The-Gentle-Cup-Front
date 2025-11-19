@@ -3,11 +3,12 @@ import{ Drink } from '../commun/interface/Drinks.interface';
 import { DrinksService } from '../commun/drinks-service';
 import { ActivatedRoute,Params, RouterLink } from '@angular/router'; 
 import { Subscription } from 'rxjs'; 
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-drinks-list-component',
-  imports: [RouterLink],
+  imports: [RouterLink,CommonModule],
   templateUrl: './drinks-list-component.html',
   styleUrl: './drinks-list-component.css',
 })

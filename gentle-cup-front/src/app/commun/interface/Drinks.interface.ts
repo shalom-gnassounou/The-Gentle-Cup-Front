@@ -7,4 +7,6 @@ export interface Drink {
   ingredients: string | string[]|null;
   recipe: string |string[]| null;
   category_id: number;
+  category: string;
+  subcat: string | null;
 }

@@ -21,6 +21,11 @@ export class DrinksService {
   getDrinkById(id: number): Observable<Drink> {
     return this.http.get<Drink>(`${this.apiUrl}/${id}`);
   }
-
+//Get drinks by subcategory
+  getDrinksBySubcategory(category: string, subcategory: string): Observable<Drink[]> {
+  return this.http.get<Drink[]>(
+    `${this.apiUrl}?category=${category}&subcategory=${subcategory}`
+  );
+}
   
 }
