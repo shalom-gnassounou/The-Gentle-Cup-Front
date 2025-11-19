@@ -1,0 +1,43 @@
+.recipe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+     padding-bottom: 2rem;
+}
+.recipe img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+.recipe h2 {
+    font-family: 'Jost', sans-serif;
+    font-style: italic;
+    color: #3C2F2A;
+    margin-bottom: 0.5rem;
+}
+.recipe h4 {
+    font-family: 'Jost', sans-serif;
+    font-style: italic;
+    color: rgba(113, 32, 32, 1);
+    margin-bottom: 0.5rem;
+}
+.recipe a {
+    text-decoration: none;
+    color: #3C2F2A;
+    font-weight: 600;
+
+}
+.recipe .btn {
+    background-color: #3C2F2A;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 2rem; 
+
+   
+}

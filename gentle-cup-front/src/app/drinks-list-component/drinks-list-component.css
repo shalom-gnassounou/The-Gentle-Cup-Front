@@ -1,0 +1,30 @@
+.contenaire.drinks {
+    margin: 1rem;
+}
+
+.card {
+    background-color: rgba(60, 47, 42, 1);
+    color: white;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    font-family: Jost, sans-serif;
+    font-style: italic;
+    max-width: 320px;
+    height: 100%;
+}
+.card a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+.card > img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 10px 10px 0px 10px;
+    padding-left: 10px;
+}

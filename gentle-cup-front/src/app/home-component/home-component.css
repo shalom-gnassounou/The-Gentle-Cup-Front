@@ -1,21 +1,4 @@
-.navbar-brand{
-    font-family: Jost, sans-serif;
-    font-size: 24px;
-    color: rgba(127, 78, 66, 1);
-    font-style: italic;
-}
-.navbar-nav .nav-link{
-    font-family: Jost, sans-serif;
-    font-size: 15px;
-    color: black;
-    font-style: italic;
-}
-.dropdown-menu{
-    font-family: Jost, sans-serif;
-    font-size: 15px;
-    color: black;
-    font-style: italic;
-}
+
 .banner{
     position: relative;
     text-align: center;
@@ -50,3 +33,45 @@
         font-style: italic;
     }
   }
+h2 {
+    margin-top: 2rem;
+    text-align: center;
+    font-family: Jost, sans-serif;
+    font-size: 24px;
+    color: rgba(127, 78, 66, 1);
+    font-style: italic;
+}
+
+.btnForRecipe {
+    text-align: center;
+    margin-top: 4rem;
+
+    .btn {
+        font-family: Jost, sans-serif;
+        font-size: 13px;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        color: white;
+        transition: background-color 0.3s ease;
+        font-style: italic;
+
+        &.warm {
+            background-color: rgba(60, 47, 42, 1);
+        }
+
+        &.cold {
+            background-color: rgba(24, 77, 113, 1);
+        }
+
+        &.mock {
+            background-color:rgba(180, 59, 199, 1);
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}

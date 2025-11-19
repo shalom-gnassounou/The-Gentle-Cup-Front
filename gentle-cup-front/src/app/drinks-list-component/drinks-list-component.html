@@ -1,0 +1,22 @@
+<div class="contenaire drinks">
+    @if(isLoading){
+     <p>Chargement des boissons...</p>
+    }
+    <h2 class="Title"> Boisson - {{currentCategory}}</h2>
+    <div class="row">
+        @for( drink of drinks; track drink.id){
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img [src]="drink.image_url" class="card-img-top" alt="{{drink.name}}">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{drink.name}}</h5>
+                        <p class="card-text">{{drink.description}}</p>  
+                        <a [routerLink]="['/drinks', drink.id]">Voir la recette</a>
+                    </div>
+                </div>
+            </div>
+        }              
+</div>
+    
+
+  

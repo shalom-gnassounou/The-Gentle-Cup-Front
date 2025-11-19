@@ -1,0 +1,19 @@
+<div class="recipe">
+    <h2 class="Title">{{drink?.name}}</h2>
+    <img [src]="drink?.image_url" alt="{{drink?.name}}" class="img-fluid mb-4">
+    <h4>Description</h4>
+    <p>{{drink?.description}}</p>
+    <h4>Ingrédients</h4>
+    <ul>
+        @for( ingredient of drink?.ingredients; track ingredient){
+            <li>{{ingredient}}</li>
+        }
+    </ul>
+    <h4>Recette</h4>
+    <ul>
+    @for (recipe of drink?.recipe; track recipe) {
+        <li>{{recipe}}</li>
+    }
+    </ul>
+    <a [routerLink]="['/drinks']" class="btn">Retour à la liste des boissons</a>
+</div>
