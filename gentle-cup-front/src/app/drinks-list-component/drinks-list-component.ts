@@ -21,18 +21,18 @@ export class DrinksListComponent {
  constructor(private drinksService: DrinksService,private route: ActivatedRoute) {}
   ngOnInit() {
     this.sub = this.route.queryParams.subscribe((params: Params) => { // Récupère les paramètres de la route
-      const category = params['category']; // Extrait la catégorie des paramètres
+      const category = params['category'];
+      const subcat = params['subcat']; 
       this.currentCategory = category;// Met à jour la catégorie actuelle
-      this.loadDrinks(category);// Charge les boissons en fonction de la catégorie
+      this.loadDrinks(category,subcat);// Charge les boissons en fonction de la catégorie
     });
   }
-    loadDrinks(category?: string) {
+    loadDrinks(category?: string,subcat?:string) {
     this.isLoading = true;
     this.errorMessage = '';
 
-    const obs = category // Si une catégorie est spécifiée, récupère les boissons par catégorie
-      ? this.drinksService.getDrinksByCategory(category)
-      : this.drinksService.getDrinks();
+    const obs = this.drinksService.getDrinks(category,subcat); // Appelle le service pour obtenir les boissons
+
 
     obs.subscribe({ // Souscrit à l'observable pour obtenir les données
       next: (data: Drink[]) => {
