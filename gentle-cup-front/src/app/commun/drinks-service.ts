@@ -21,8 +21,9 @@ export class DrinksService {
 
 
 // Get drinks by subcategory
-getDrinksBySubcategory(category?: string, subcat?: string) {
-  return this.getDrinks(category, subcat);
+getDrinksBySubcategory(subcat: string): Observable<Drink[]> {
+  const params = new HttpParams().set('subcat', subcat);
+  return this.http.get<Drink[]>(this.apiUrl, { params });
 }
 // Get drinks by category
   getDrinksByCategory(categoryName: string): Observable<Drink[]> {
