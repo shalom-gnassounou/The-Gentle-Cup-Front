@@ -103,13 +103,13 @@
         </li>
         @if (authService.isLoggedIn()) {
           <li class="nav-item">
-            <a class="nav-link" routerLink="/my-drinks">Mes recettes</a>
+            <a class="nav-link" routerLink="/my-drinks">Mon Dashboard</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/create-drink">Créer une recette</a>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-danger ms-2" (click)="logout()">Se déconnecter</button>
+            <button class="btn btn-outline-danger ms-1" (click)="logout()">Se déconnecter</button>
           </li>
         } @else {
           <li class="nav-item">
