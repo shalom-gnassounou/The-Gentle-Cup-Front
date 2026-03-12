@@ -1,40 +1,54 @@
-import { Component } from '@angular/core';
-import{ Drink } from '../commun/interface/Drinks.interface';
+import { Component, OnInit, OnDestroy } from '@angular/core'; 
+import { Drink } from '../commun/interface/Drinks.interface';
 import { DrinksService } from '../commun/drinks-service';
-import { ActivatedRoute,Params, RouterLink } from '@angular/router'; 
+import { FavoritesService } from '../commun/favorite';
+import { AuthService } from '../commun/auth-service';
+import { ActivatedRoute, Params, RouterLink } from '@angular/router'; 
 import { Subscription } from 'rxjs'; 
 import { CommonModule } from '@angular/common';
 
-
 @Component({
   selector: 'app-drinks-list-component',
-  imports: [RouterLink,CommonModule],
+  imports: [RouterLink, CommonModule],
   templateUrl: './drinks-list-component.html',
   styleUrl: './drinks-list-component.css',
 })
-export class DrinksListComponent {
+export class DrinksListComponent implements OnInit, OnDestroy { 
   drinks: Drink[] = []; 
-  isLoading = false; // Indicate loading state
+  favoriteDrinkIds: number[] = []; 
+  isLoading = false;
   errorMessage = '';
   currentCategory?: string;
-  private sub: Subscription | null = null; // Subscription for route params
- constructor(private drinksService: DrinksService,private route: ActivatedRoute) {}
+  private sub: Subscription | null = null;
+
+  constructor(
+    private drinksService: DrinksService,
+    private route: ActivatedRoute,
+    private favoritesService: FavoritesService,
+    public authService: AuthService 
+  ) {}
+
   ngOnInit() {
-    this.sub = this.route.queryParams.subscribe((params: Params) => { // Récupère les paramètres de la route
+    this.sub = this.route.queryParams.subscribe((params: Params) => {
       const category = params['category'];
       const subcat = params['subcat']; 
-      this.currentCategory = category;// Met à jour la catégorie actuelle
-      this.loadDrinks(category,subcat);// Charge les boissons en fonction de la catégorie
+      this.currentCategory = category;
+      this.loadDrinks(category, subcat);
     });
+
+    
+    if (this.authService.isLoggedIn()) {
+      this.loadFavorites();
+    }
   }
-    loadDrinks(category?: string,subcat?:string) {
+
+  loadDrinks(category?: string, subcat?: string) {
     this.isLoading = true;
     this.errorMessage = '';
 
-    const obs = this.drinksService.getDrinks(category,subcat); // Appelle le service pour obtenir les boissons
+    const obs = this.drinksService.getDrinks(category, subcat);
 
-
-    obs.subscribe({ // Souscrit à l'observable pour obtenir les données
+    obs.subscribe({
       next: (data: Drink[]) => {
         this.drinks = data;
         this.isLoading = false;
@@ -46,10 +60,55 @@ export class DrinksListComponent {
       }
     });
   }
-  ngOnDestroy() { // Nettoie la souscription lors de la destruction du composant
+
+  
+  loadFavorites() {
+    this.favoritesService.getFavorites().subscribe({
+      next: (favorites) => {
+        // Extraire uniquement les IDs des drinks favoris
+        this.favoriteDrinkIds = favorites.map(fav => fav.drinkId);
+      },
+      error: (error) => {
+        console.error('Erreur chargement favoris', error);
+      }
+    });
+  }
+
+  
+  isFavorite(drinkId: number): boolean {
+    return this.favoriteDrinkIds.includes(drinkId);
+  }
+
+  
+  toggleFavorite(drinkId: number, event: Event) {
+    event.stopPropagation(); // Empêche la propagation du clic
+
+    if (this.isFavorite(drinkId)) {
+      // Retirer des favoris
+      this.favoritesService.removeFavorite(drinkId).subscribe({
+        next: () => {
+          this.favoriteDrinkIds = this.favoriteDrinkIds.filter(id => id !== drinkId);
+        },
+        error: (error) => {
+          console.error('Erreur suppression favori', error);
+        }
+      });
+    } else {
+      // Ajouter aux favoris
+      this.favoritesService.addFavorite(drinkId).subscribe({
+        next: () => {
+          this.favoriteDrinkIds.push(drinkId);
+        },
+        error: (error) => {
+          console.error('Erreur ajout favori', error);
+        }
+      });
+    }
+  }
+
+  ngOnDestroy() {
     if (this.sub) {
       this.sub.unsubscribe();
     }
   }
-
 }

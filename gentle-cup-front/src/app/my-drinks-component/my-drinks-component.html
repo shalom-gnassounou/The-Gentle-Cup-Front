@@ -1,0 +1,78 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Mes Recettes</h2>
+        <a routerLink="/create-drink" class="btn btn-primary">
+          <i class="bi bi-plus-circle"></i> Créer une recette
+        </a>
+      </div>
+
+      <!-- Messages -->
+      @if (errorMessage) {
+        <div class="alert alert-danger" role="alert">
+          {{ errorMessage }}
+        </div>
+      }
+
+      @if (successMessage) {
+        <div class="alert alert-success" role="alert">
+          {{ successMessage }}
+        </div>
+      }
+
+      <!-- Liste des recettes -->
+      @if (myDrinks.length === 0) {
+        <div class="alert alert-info" role="alert">
+          <h5>Vous n'avez pas encore créé de recette</h5>
+          <p>Commencez par <a routerLink="/create-drink">créer votre première recette</a> !</p>
+        </div>
+      } @else {
+        <div class="row">
+          @for (drink of myDrinks; track drink.id) {
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card h-100 shadow-sm">
+                @if (drink.image_url) {
+                  <img [src]="drink.image_url" class="card-img-top" [alt]="drink.name" style="height: 200px; object-fit: cover;">
+                } @else {
+                  <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 200px;">
+                    <span>Pas d'image</span>
+                  </div>
+                }
+                
+                <div class="card-body">
+                  <h5 class="card-title">{{ drink.name }}</h5>
+                  <p class="card-text">{{ drink.description }}</p>
+                  
+                  <div class="mb-2">
+                    <span class="badge bg-info">{{ drink.category }}</span>
+                    <span class="badge bg-secondary">{{ drink.subcat }}</span>
+                    <span class="badge" 
+                          [ngClass]="{
+                            'bg-success': drink.difficulty === 'easy',
+                            'bg-warning': drink.difficulty === 'medium',
+                            'bg-danger': drink.difficulty === 'hard'
+                          }">
+                      @if (drink.difficulty === 'easy') { Facile }
+                      @if (drink.difficulty === 'medium') { Moyen }
+                      @if (drink.difficulty === 'hard') { Difficile }
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="card-footer bg-transparent border-0 d-flex gap-2">
+                  <a [routerLink]="['/edit-drink', drink.id]" class="btn btn-warning btn-sm flex-grow-1">
+                    <i class="bi bi-pencil"></i> Modifier
+                  </a>
+                  <button (click)="deleteDrink(drink.id, drink.name)" class="btn btn-danger btn-sm flex-grow-1">
+                    <i class="bi bi-trash"></i> Supprimer
+                  </button>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</div>

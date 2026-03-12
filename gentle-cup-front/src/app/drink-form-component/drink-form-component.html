@@ -1,0 +1,171 @@
+<div class="container mt-5 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow mb-5">
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">
+            @if (isEditMode) {
+              Modifier la recette
+            } @else {
+              Créer une nouvelle recette
+            }
+          </h2>
+
+          <form (ngSubmit)="onSubmit()">
+            <!-- Nom de la boisson -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Nom de la boisson *</label>
+              <input 
+                type="text" 
+                class="form-control"
+                id="name"
+                [(ngModel)]="drink.name" 
+                name="name" 
+                required
+                placeholder="Ex: Cappuccino vanille"
+              />
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+              <label for="description" class="form-label">Description *</label>
+              <textarea 
+                class="form-control"
+                id="description"
+                [(ngModel)]="drink.description" 
+                name="description" 
+                rows="3"
+                required
+                placeholder="Décrivez votre boisson..."
+              ></textarea>
+            </div>
+
+            <!-- URL de l'image -->
+            <div class="mb-3">
+              <label for="image_url" class="form-label">URL de l'image</label>
+              <input 
+                type="text" 
+                class="form-control"
+                id="image_url"
+                [(ngModel)]="drink.image_url" 
+                name="image_url"
+                placeholder="https://exemple.com/image.jpg"
+              />
+            </div>
+
+            <!-- Difficulté -->
+            <div class="mb-3">
+              <label for="difficulty" class="form-label">Difficulté *</label>
+              <select 
+                class="form-select"
+                id="difficulty"
+                [(ngModel)]="drink.difficulty" 
+                name="difficulty"
+                required
+              >
+                <option value="facile">Facile</option>
+                <option value="moyen">Moyen</option>
+                <option value="difficile">Difficile</option>
+              </select>
+            </div>
+
+            <!-- Ingrédients -->
+            <div class="mb-3">
+              <label for="ingredients" class="form-label">Ingrédients *</label>
+              <textarea 
+                class="form-control"
+                id="ingredients"
+                [(ngModel)]="drink.ingredients" 
+                name="ingredients" 
+                rows="4"
+                required
+                placeholder="Listez les ingrédients..."
+              ></textarea>
+            </div>
+
+            <!-- Recette -->
+            <div class="mb-3">
+              <label for="recipe" class="form-label">Préparation *</label>
+              <textarea 
+                class="form-control"
+                id="recipe"
+                [(ngModel)]="drink.recipe" 
+                name="recipe" 
+                rows="5"
+                required
+                placeholder="Étapes de préparation..."
+              ></textarea>
+            </div>
+
+            <!-- Catégorie -->
+            <div class="mb-3">
+              <label for="category_id" class="form-label">Catégorie *</label>
+              <select 
+                class="form-select"
+                id="category_id"
+                [(ngModel)]="drink.category_id" 
+                name="category_id"
+                required
+              >
+                <option value="1">Boisson chaude</option>
+                <option value="2">Boisson froide</option>
+              </select>
+            </div>
+
+            <!-- Sous-catégorie -->
+            <div class="mb-3">
+              <label for="subcat" class="form-label">Sous-catégorie *</label>
+              <select 
+                class="form-select"
+                id="subcat"
+                [(ngModel)]="drink.subcat" 
+                name="subcat"
+                required
+              >
+                <optgroup label="Boissons chaudes">
+                  <option value="coffee">Café</option>
+                  <option value="latte">Latté</option>
+                  <option value="tea">Thé</option>
+                  <option value="hotchoco">Chocolat chaud</option>
+                </optgroup>
+                <optgroup label="Boissons froides">
+                  <option value="icecoffee">Café glacé</option>
+                  <option value="icelatte">Latté glacé</option>
+                  <option value="icetea">Thé glacé</option>
+                  <option value="mock">Mocktail</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <!-- Messages -->
+            @if (errorMessage) {
+              <div class="alert alert-danger" role="alert">
+                {{ errorMessage }}
+              </div>
+            }
+
+            @if (successMessage) {
+              <div class="alert alert-success" role="alert">
+                {{ successMessage }}
+              </div>
+            }
+
+            <!-- Boutons -->
+            <div class="d-flex gap-2">
+              <button type="submit" class="btn btn-primary flex-grow-1">
+                @if (isEditMode) {
+                  Modifier la recette
+                } @else {
+                  Créer la recette
+                }
+              </button>
+              <button type="button" class="btn btn-secondary" routerLink="/my-drinks">
+                Annuler
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

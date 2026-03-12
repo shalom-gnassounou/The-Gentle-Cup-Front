@@ -34,5 +34,23 @@ getDrinksBySubcategory(subcat: string): Observable<Drink[]> {
     return this.http.get<Drink>(`${this.apiUrl}/${id}`);
   }
 
-  
+    // Create a new drink
+  createDrink(drink: any): Observable<any> {
+    return this.http.post(this.apiUrl, drink);
+  }
+
+  // Update an existing drink
+  updateDrink(id: number, drink: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, drink);
+  }
+
+  // Delete a drink
+  deleteDrink(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
+  //Get the user's own drinks
+  getMyDrinks(): Observable<Drink[]> {
+  return this.http.get<Drink[]>(`${this.apiUrl}/my-drinks`);
 }
+}
+

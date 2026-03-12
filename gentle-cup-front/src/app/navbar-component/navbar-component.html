@@ -1,7 +1,15 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">The Gentle Cup</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
@@ -10,39 +18,104 @@
           <a class="nav-link active" aria-current="page" href="/">Acceuil</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             Nos Boissons Chaudes
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" [routerLink]="['/subcat']"[queryParams]="{ subcat: 'coffee' }">Cafés</a></li>
-            <li><a class="dropdown-item" [routerLink]="['/subcat']"[queryParams]="{ subcat: 'latte' }">Lattés</a></li>
-            <li><a class="dropdown-item" [routerLink]="['/subcat']"[queryParams]="{ subcat: 'tea' }">Thés</a></li>
-            <li><a class="dropdown-item" [routerLink]="['/subcat']"[queryParams]="{ subcat: 'hotchoco' }">Chocolats Chaud</a></li>
+            <li>
+              <a
+                class="dropdown-item"
+                [routerLink]="['/subcat']"
+                [queryParams]="{ subcat: 'coffee' }"
+                >Cafés</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                [routerLink]="['/subcat']"
+                [queryParams]="{ subcat: 'latte' }"
+                >Lattés</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" [routerLink]="['/subcat']" [queryParams]="{ subcat: 'tea' }"
+                >Thés</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                [routerLink]="['/subcat']"
+                [queryParams]="{ subcat: 'hotchoco' }"
+                >Chocolats Chaud</a
+              >
+            </li>
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             Nos Boissons Froides
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" [routerLink]="['/subcat']"[queryParams]="{ subcat: 'icecoffee' }">Cafés Glacées</a></li>
-            <li><a class="dropdown-item" [routerLink]="['/subcat']"[queryParams]="{ subcat: 'icelatte' }">Lattés Glacées</a></li>
-            <li><a class="dropdown-item" [routerLink]="['/subcat']"[queryParams]="{ subcat: 'icetea' }">Thés Glacées</a></li>
-            <li><a class="dropdown-item" [routerLink]="['/subcat']"[queryParams]="{ subcat: 'mock' }">Mocktail</a></li>
+            <li>
+              <a
+                class="dropdown-item"
+                [routerLink]="['/subcat']"
+                [queryParams]="{ subcat: 'icecoffee' }"
+                >Cafés Glacées</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                [routerLink]="['/subcat']"
+                [queryParams]="{ subcat: 'icelatte' }"
+                >Lattés Glacées</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                [routerLink]="['/subcat']"
+                [queryParams]="{ subcat: 'icetea' }"
+                >Thés Glacées</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" [routerLink]="['/subcat']" [queryParams]="{ subcat: 'mock' }"
+                >Mocktail</a
+              >
+            </li>
           </ul>
         </li>
         @if (authService.isLoggedIn()) {
           <li class="nav-item">
-            <button class="btn btn-outline-danger ms-2" (click)="logout()">
-              Se déconnecter
-            </button>
+            <a class="nav-link" routerLink="/my-drinks">Mes recettes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/create-drink">Créer une recette</a>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-danger ms-2" (click)="logout()">Se déconnecter</button>
           </li>
         } @else {
           <li class="nav-item">
             <a class="nav-link" routerLink="/login">Se connecter</a>
           </li>
         }
-        
       </ul>
     </div>
   </div>
