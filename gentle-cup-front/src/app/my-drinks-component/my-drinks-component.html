@@ -47,9 +47,9 @@
             <p>Commencez par <a routerLink="/create-drink">créer votre première recette</a> !</p>
           </div>
         } @else {
-          <div class="row">
+          <div class="row  pb-4">
             @for (drink of myDrinks; track drink.id) {
-              <div class="col-md-6 col-lg-4 mb-4">
+              <div class="col-md-6 col-lg-4 mb-5">
                 <div class="card h-100 shadow-sm">
                   @if (drink.image_url) {
                     <img [src]="drink.image_url" class="card-img-top" [alt]="drink.name" style="height: 200px; object-fit: cover;">
@@ -59,7 +59,7 @@
                     </div>
                   }
                   
-                  <div class="card-body">
+                  <div class="card-body ">
                     <h5 class="card-title">{{ drink.name }}</h5>
                     <p class="card-text">{{ drink.description }}</p>
                     
@@ -80,7 +80,7 @@
                   </div>
                   
                   <div class="card-footer bg-transparent border-0 d-flex gap-2">
-                    <a [routerLink]="['/edit-drink', drink.id]" class="btn btn-warning btn-sm flex-grow-1">
+                    <a [routerLink]="['/edit-drink', drink.id]" class=" btn btn-modify btn-sm flex-grow-1">
                       <i class="bi bi-pencil"></i> Modifier
                     </a>
                     <button (click)="deleteDrink(drink.id, drink.name)" class="btn btn-danger btn-sm flex-grow-1">
@@ -102,9 +102,9 @@
             <p>Ajoutez des recettes à vos favoris en cliquant sur le ❤️ !</p>
           </div>
         } @else {
-          <div class="row">
+          <div class="row  pb-4">
             @for (drink of favoriteDrinks; track drink.id) {
-              <div class="col-md-6 col-lg-4 mb-4">
+              <div class="col-md-6 col-lg-4 mb-5">
                 <div class="card h-100 shadow-sm">
                   @if (drink.image_url) {
                     <img [src]="drink.image_url" class="card-img-top" [alt]="drink.name" style="height: 200px; object-fit: cover;">
@@ -120,7 +120,7 @@
                   </div>
                   
                   <div class="card-footer bg-transparent">
-                    <button (click)="removeFavorite(drink.id, drink.name)" class="btn btn-danger btn-sm w-100">
+                    <button (click)="removeFavorite(drink.id, drink.name)" class="btn btn-outline-danger btn-sm w-50">
                       <i class="bi bi-heart-fill"></i> Retirer des favoris
                     </button>
                   </div>
