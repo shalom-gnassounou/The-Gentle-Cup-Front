@@ -26,7 +26,7 @@ export class RegisterComponent {
       next: (response) => {
         console.log('Inscription réussie', response);
         // Rediriger vers le login
-        this.router.navigate(['/login']);
+        this.router.navigate(['/home']);
       },
       error: (error) => {
         console.error('Erreur inscription', error);

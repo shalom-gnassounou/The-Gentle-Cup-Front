@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Drink } from '../commun/interface/Drinks.interface';
 import { DrinkForm } from '../commun/interface/Drinks-form.interface';
 import { DrinksService } from '../commun/drinks-service';
@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-drink-form',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './drink-form-component.html',
   styleUrls: ['./drink-form-component.css']
 })
