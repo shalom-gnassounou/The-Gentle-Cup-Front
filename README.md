@@ -51,16 +51,16 @@ Make sure the backend is running and update the API base URL in the environment 
 Here are some screenshots of the application:
 
 ### Home Page
-![Home](src/assets/screenshots/home.png)
+![Home](./src/assets/screenshots/home.png)
 
 ### Recipe List
-![Recipes](src/assets/screenshots/recipes.png)
+![Recipes](./src/assets/screenshots/recipes.png)
 
 ### Recipe Details
-![Details](src/assets/screenshots/recipe.png)
+![Details](./src/assets/screenshots/recipe.png)
 
 ### Dashboard
-![Dashboard](src/assets/screenshots/favorites.png)
+![Dashboard](./src/assets/screenshots/favorites.png)
 
 
 ## Notes
