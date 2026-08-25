@@ -46,6 +46,23 @@ The project was developed as part of my Web & Web Mobile Developer certification
 This frontend communicates with the backend API (Node.js / Express).  
 Make sure the backend is running and update the API base URL in the environment files if needed: /src/environments/environment.ts
 
+## Screenshots
+
+Here are some screenshots of the application:
+
+### Home Page
+![Home](src/assets/screenshots/home.png)
+
+### Recipe List
+![Recipes](src/assets/screenshots/recipes.png)
+
+### Recipe Details
+![Details](src/assets/screenshots/recipe.png)
+
+### Dashboard
+![Dashboard](src/assets/screenshots/favorites.png)
+
+
 ## Notes
 This project demonstrates my ability to build a full-stack application using Angular, Node.js, SQL, and data manipulation (CSV/JSON).  
 It showcases component-based architecture, API integration, and clean UI design.
