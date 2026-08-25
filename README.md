@@ -51,7 +51,7 @@ Make sure the backend is running and update the API base URL in the environment 
 Here are some screenshots of the application:
 
 ### Home Page
-![Home](./src/assets/screenshots/home.png)
+![Home](./the-gentle-cup-front/src/assets/screenshots/home.png)
 
 ### Recipe List
 ![Recipes](./src/assets/screenshots/recipes.png)
