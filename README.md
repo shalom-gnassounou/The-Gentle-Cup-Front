@@ -54,13 +54,16 @@ Here are some screenshots of the application:
 ![Home](./gentle-cup-front/src/assets/screenshots/home.png)
 
 ### Recipe List
-![Recipes](./src/assets/screenshots/recipes.png)
+![Recipes](./gentle-cup-front/src/assets/screenshots/recipes.png)
 
 ### Recipe Details
-![Details](./src/assets/screenshots/recipe.png)
+![Details](./gentle-cup-front/src/assets/screenshots/recipe.png)
 
 ### Dashboard
-![Dashboard](./src/assets/screenshots/favorites.png)
+![Dashboard](./gentle-cup-front/src/assets/screenshots/favorites.png)
+
+### Form
+![Form](./gentle-cup-front/src/assets/screenshots/form.png)
 
 
 ## Notes
